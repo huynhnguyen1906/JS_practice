@@ -1,12 +1,9 @@
-let number = prompt("なんの九九調べたい？")
-function calculateAge(number) {
-    if (number > 9) {
+function calculateAge() {
+    let number = prompt("なんの九九調べたい？")
+    if (number > 9 || isNaN(number)) {
         alert("２～９だけの数字入力してください！");
-        setTimeout(calculateAge, 1000);
-    } else if (isNaN(number)) {
-        alert("２～９だけの数字入力してください！")
-        setTimeout(calculateAge, 1000);
-    }else { 
+        setTimeout(calculateAge, 10);
+    } else { 
         document.write("九九の" + number + ":<br>");
         for (let i = 1; i <= 9; i++){
             let result = number * i;
@@ -14,4 +11,4 @@ function calculateAge(number) {
         }
     }
 }
-calculateAge(number)
+calculateAge()
