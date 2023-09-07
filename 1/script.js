@@ -1,4 +1,3 @@
-var a = 1;
-var b = 2;
-console.log(a+b);
-console.log("hello world");
+let num1 = 2;
+let num2 = 3;
+console.log(num1 + num2)
