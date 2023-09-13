@@ -1,0 +1,11 @@
+.dropDown {
+    height: 40px;
+    width: 300px;
+    background-color: skyblue;
+    line-height: 40px;
+    text-align: center;
+}
+.dropDownContent {
+    display: none;
+    width: 400px;
+}
