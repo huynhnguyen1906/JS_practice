@@ -1,7 +1,9 @@
 function changeBackgroundColor() {
+    var colors = ["red", "green", "blue"]
     var body = document.body;
-    console.log(body.style.backgroundColor === "red");
-    // setTimeout(changeBackgroundColor, 500);
+    var randomColor = colors[Math.floor(Math.random() * colors.length)]; 
+    body.style.backgroundColor = randomColor;
+    setTimeout(changeBackgroundColor, 500);
 }
 changeBackgroundColor();
 function changeText() {
