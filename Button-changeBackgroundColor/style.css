@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+#box {
+    height: 500px;
+    width: 500px;
+    border: 2px solid black;
+    margin: 150px auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.colorButton {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+.colorButton:nth-child(1) {
+    background-color: red;
+}
+.colorButton:nth-child(2) {
+    background-color: blue;
+}
+.colorButton:nth-child(3) {
+    background-color: green;
+}
