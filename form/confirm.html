@@ -9,10 +9,19 @@
     <h1>DLLT Education</h1>
 	<h2>Confirmation Form</h2>
 
-	<p> Your name: <span id="confirm_name"></span>  </p>
-	<p> Your email: <span id="confirm_email"></span>  </p>
-	<p> Your phone number: <span id="confirm_phone"></span>  </p>
-	<p> Your age: <span id="confirm_age"></span>  </p>
+	<form method="post" action="dunglailaptrinh.com/api.php">
+	    <fieldset>
+            <legend>Please confirm your detail</legend>
+	        <p> Your name: <span id="confirm_name"></span>  </p>
+        	<p> Your email: <span id="confirm_email"></span>  </p>
+        	<p> Your phone number: <span id="confirm_phone"></span>  </p>
+        	<p> Your age: <span id="confirm_age"></span>  </p>
+	    </fieldset>
+        <br>
+        <input type="submit" value="Pay now">
+        <input id="cancelButton" type="button" value="Cancel">
+        
+	</form>
     <script src="confirm.js"></script>
 </body>
 </html>
