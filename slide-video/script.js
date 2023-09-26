@@ -35,13 +35,19 @@ prevButton.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + videos.length) % videos.length;
     showVideo(currentIndex);
     updatePageNumbers();
+    restartCurrentVideo();
 });
 
 nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % videos.length;
     showVideo(currentIndex);
     updatePageNumbers();
+    restartCurrentVideo();
 });
 
+function restartCurrentVideo() {
+    const currentVideo = videos[currentIndex].querySelector('video');
+    currentVideo.currentTime = 0;
+}   
 showVideo(currentIndex);
 updatePageNumbers();
