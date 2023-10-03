@@ -1,0 +1,48 @@
+/* Thiết lập giao diện người dùng */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    margin-top: 20px;
+}
+
+#new-task {
+    width: 200px;
+    padding: 5px;
+}
+
+button {
+    padding: 5px 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* Thiết lập màu nền khi hover */
+li:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
