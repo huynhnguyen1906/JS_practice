@@ -1,0 +1,43 @@
+body ul {
+    padding: 0;
+    margin: 0;
+} 
+ /* CSS cho menu dọc */
+ .menu {
+    list-style: none;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: lightgray;
+    height: 100vh;
+}
+
+.menu li {
+    margin-bottom: 20px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px;
+    position: relative;
+}
+
+/* Hiệu ứng hover */
+.menu a:hover {
+    background-color: lightcoral;
+}
+
+/* Hiệu ứng khi chọn */
+.menu a.active {
+    background-color: red;
+}
+
+/* Sections trên trang web */
+section {
+    text-align: center;
+    height: 100vh;
+    border: 1px solid lightgray;
+}
