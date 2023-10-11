@@ -1,0 +1,28 @@
+.slider {
+    position: relative;
+  }
+  .slide {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    opacity: 0.5;
+    transform: translateX(-30px);
+    transition: opacity 0.5s, transform 0.5s, z-index 0s;
+  }
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .controls {
+    position: relative;
+  }
+  .pagination .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+  }
+  .pagination .dot.active {
+    background-color: #717171;
+  }
+  

@@ -18,9 +18,9 @@ body, html {
     justify-content: center;
 }
 .video-box {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     width: 825px;
     height: 590px;
     overflow: hidden;
@@ -35,6 +35,7 @@ body, html {
     width:  800px;
     height: 451px;
     position: relative;
+    background-color: #dbd1ea;
 }
 #title,#text {
     text-align: center;
