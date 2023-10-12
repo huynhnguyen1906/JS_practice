@@ -1,41 +1,48 @@
-var slides = document.querySelectorAll('.slide');
-var dots = document.querySelectorAll('.dot');
-var prevButton = document.querySelector('.prev');
-var nextButton = document.querySelector('.next');
+let currentIndex = 0;
+  const divs = document.querySelectorAll('.child');
+  const dots = document.querySelectorAll('.dot');
+  const previousButton = document.getElementById('previousBtn');
+  const nextButton = document.getElementById('nextBtn');
 
-var currentIndex = slides.length -1;
-
-function updateSlides() {
-    for (var i = slides.length -1; i >=0; i--) {
-        slides[i].style.zIndex = i;
-        slides[i].classList.remove('active');
-        dots[i].classList.remove('active');
+  function updateDivOrder() {
+    for (let i = 0; i < divs.length; i++) {
+      const newIndex = (i - currentIndex + divs.length) % divs.length;
+      divs[i].className = "child " + "div" + (newIndex + 1);
     }
-    slides[currentIndex].classList.add('active');
-    dots[currentIndex].classList.add('active');
-}
-
-prevButton.addEventListener('click', function() {
-    currentIndex--;
-    if (currentIndex < 0) {
-        currentIndex = slides.length -1;
-    }
-    updateSlides();
-});
-
-nextButton.addEventListener('click', function() {
-    currentIndex++;
-    if (currentIndex >= slides.length) {
-        currentIndex =0;
-    }
-    updateSlides();
-});
-
-for (let i = slides.length -1; i >=0; i--) {
-    dots[i].addEventListener('click', function() {
-        currentIndex = i;
-        updateSlides();
+  
+    dots.forEach((dot, i) => {
+      dot.classList.remove('active');
+      if (i === currentIndex) {
+        dot.classList.add('active');
+      }
     });
-}
+  }
 
-updateSlides();
+  function goToSlide(index) {
+    currentIndex = index;
+    updateDivOrder();
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1 + divs.length) % divs.length;
+    updateDivOrder();
+  }
+  
+  function previousSlide() {
+    currentIndex = (currentIndex - 1) % divs.length;
+    updateDivOrder();
+  }
+
+  // Attach click event listeners to the buttons
+  previousButton.addEventListener('click', previousSlide);
+  nextButton.addEventListener('click', nextSlide);
+
+  // Attach click event listeners to the dots
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].addEventListener('click', () => {
+      goToSlide(i); 
+    });
+  }
+
+  // Initial display
+  updateDivOrder();
