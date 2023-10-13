@@ -11,6 +11,26 @@ body {
   justify-content: center;
   align-items: center;
 }
+#test {
+  width: 30.875rem;
+  height: 17.375rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#frame {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 5;
+}
+#video {
+  width: 98%;
+  height: 98%;
+}
 .slide-box {
   width: 500px;
   height: 250px;
@@ -24,28 +44,28 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.div1 {
+.activate1 {
   z-index: 3;
   opacity: 1;
   right: 0px;
   transform: scale(1);
 }
 
-.div2 {
+.active-next {
   transform: scale(0.75);
   z-index: 2;
   opacity: 0.3;
   right: -100px;
 }
 
-.div3 {
+.un-active {
   z-index: 0;
   opacity: 0;
   right: 0px;
   transform: scale(0.75);
 }
 
-.div4 {
+.active-prev {
   z-index: 1;
   opacity: 0.3;
   right: 100px;
