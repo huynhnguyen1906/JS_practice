@@ -38,10 +38,10 @@ body {
 }
 
 .child {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transition: all 0.3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
 }
 
 .activate1 {
