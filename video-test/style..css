@@ -1,0 +1,97 @@
+#ver-content {
+    width: 96.6rem;
+    height: 100%;
+    position: absolute;
+    right: 4.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    overflow: hidden;
+}
+#ver-slider-box {
+    width: 96.5rem;
+    height: 45.83319rem;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#ver-prev-btn {
+    width: 4.5625rem;
+    height: 4.875rem;
+    background-image: url("../src/img/ver-prev-btn.webp");
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    z-index: 5;
+}
+#ver-next-btn {
+    width: 4.5625rem;
+    height: 4.875rem;
+    background-image: url("../src/img/ver-next-btn.webp");
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    z-index: 5;
+}
+#ver-slider-container {
+    width: 81.41644rem;
+    height: 45.83319rem;
+    position: relative;
+}
+.gb-slider {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url("../src/img/ver-slider-bg.webp");
+    background-position: center;
+    background-size: contain;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.ver-activate {
+    z-index: 3;
+    opacity: 1;
+    right: 0px;
+    transform: scale(1);
+}
+.ver-active-next {
+    z-index: 2;
+    opacity: 0.3;
+    right: -17.5rem;
+    transform: scale(0.75);
+}
+.ver-active-prev {
+    z-index: 1;
+    opacity: 0.3;
+    right: 17.5rem;
+    transform: scale(0.75);
+} 
+#ver-pagination {
+    margin: 3rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ver-dot {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid #F6F2EA;
+    margin-left: 1.25rem;
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out, border 0.1s ease-in-out;
+}
+.ver-dot:hover, .ver-dot.ver-dot-active {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid #fff;
+    background-image: url("../src/img/ver-dot-active.webp");
+    background-size: 50% 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}

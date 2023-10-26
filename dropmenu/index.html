@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Gốc của dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Mục để mở dropdown */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    position: relative; /* Thêm thuộc tính position: relative; */
+}
+
+/* Dropdown content mặc định ẩn đi */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+    border: 1px solid #ddd;
+    right: 0; /* Đặt right: 0; để nó hiển thị bên phải */
+    top: 0; /* Đặt top: 0; để nó hiển thị cùng một độ cao với item 1 */
+}
+
+/* Hiển thị dropdown content khi hover vào dropdown */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Phần extra content */
+.extra-content {
+    display: none;
+    padding: 10px;
+    background-color: #ddd;
+    position: absolute;
+    right: 100%; /* Hiển thị bên phải item 1 */
+    top: 0; /* Cùng một độ cao với item 1 */
+}
+
+/* Hiển thị extra content khi hover vào item 1 */
+.dropbtn:hover .extra-content {
+    display: block;
+}
+    </style>
+</head>
+<body>
+    <ul class="dropdown">
+        <li class="dropbtn">Menu
+            <ul class="dropdown-content">
+                <li><a href="#">Item 1
+                    <ul class="extra-content">
+                        <li><a href="#">Extra Item 1</a></li>
+                        <li><a href="#">Extra Item 2</a></li>
+                    </ul>
+                </a></li>
+                <li><a href="#">Item 2</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
