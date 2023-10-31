@@ -1,0 +1,42 @@
+.ver-text-box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+.ver-text p {
+    color: #876A3E;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 1.25rem;
+    margin-top: 0.3rem;
+}
+.ver-video-box {
+    width: 72.5rem;
+    height: 27.77344rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ver-play-btn {
+    background-image: url("../src/img/ver-play-btn.webp");
+    background-size: auto;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%; 
+    cursor: pointer;
+    z-index: 3;
+}
+#new-area-title {
+    width: 33.75rem;
+    height: 7.125rem;
+    background-image: url("../src/img/new-area-title.webp");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}  
