@@ -6,7 +6,6 @@ const submitBox = document.querySelector("#submitBox");
 let boardHeight = parseInt(window.getComputedStyle(board).height);
 let boardWidth = parseInt(window.getComputedStyle(board).width);
 
-console.log(boardHeight);
 
 let clickCount = 10;
 
@@ -15,10 +14,10 @@ input.addEventListener("keydown", (e) => {
     send.click();
     input.value = "";
 });
-
 send.addEventListener("click", () => {
     if (input.value == "") return;
     let postWrapArray = [];
+
     for (let i = 0; i < 15; i++) {
         let postWrap = document.createElement("div");
         postWrap.classList.add("postWrap");
@@ -34,6 +33,15 @@ send.addEventListener("click", () => {
         postWrap.appendChild(date);
         date.textContent = new Date().toLocaleString();
         post.textContent = input.value;
+        
+        // let img = document.createElement("img");
+
+        // img.src = "img/honda.png";
+
+        // img.width = 100;
+        // img.height = 100;
+        // post.appendChild(img);
+
         const rgbMin = 200;
         post.style.backgroundColor =
         "rgb(" +
@@ -44,15 +52,45 @@ send.addEventListener("click", () => {
         (rgbMin + (256 - rgbMin) * Math.random()) +
         ")";
         clickCount += 1;
+        
         postWrap.style.zIndex = clickCount;
         // postWrap.style.display = "none"
         postWrapArray.push(postWrap);
     }
-
-
-
-
+    const errorAudios = [
+        new Audio("audio/erro.mp3"),
+        new Audio("audio/erro.mp3"),
+        new Audio("audio/erro.mp3"),
+        new Audio("audio/erro.mp3"),
+        new Audio("audio/erro.mp3"),
+        new Audio("audio/erro.mp3"),
+        new Audio("audio/erro.mp3"),
+        new Audio("audio/erro.mp3"),
+        new Audio("audio/erro.mp3"),
+    ];
     
+    let currentAudioIndex = 0;
+    let playCount = 0;
+    
+    function playAudio() {
+        if (playCount < 15) {
+            // Lấy âm thanh hiện tại dựa vào currentAudioIndex
+            const currentAudio = errorAudios[currentAudioIndex];
+    
+            // Phát âm thanh
+            currentAudio.play();
+    
+            // Tăng currentAudioIndex để lấy âm thanh mới cho lần tiếp theo
+            currentAudioIndex = (currentAudioIndex + 1) % errorAudios.length;
+    
+            playCount++;
+        }
+    }
+    
+    setInterval(playAudio, 75);
+
+
+
     let delay = 0; // Độ trễ ban đầu
     const delayIncrement = 50; // Tăng cứng mỗi lần
     
@@ -61,7 +99,6 @@ send.addEventListener("click", () => {
         setTimeout(() => {
             let postWrapHeight = parseInt(window.getComputedStyle(postWrap).height);
             let postWrapWidth = parseInt(window.getComputedStyle(postWrap).width);
-
             postWrap.style.top =
                 Math.random() * (boardHeight - postWrapHeight) + "px";
             postWrap.style.left =
@@ -71,8 +108,6 @@ send.addEventListener("click", () => {
                     let left = parseFloat(postWrapArray[index - 1].style.left) + 20 + "px";
                     postWrap.style.top = top;
                     postWrap.style.left = left;
-                    // postWrap.style.display = "block"
-
                 }    
             // ...
         }, delay);
@@ -80,7 +115,43 @@ send.addEventListener("click", () => {
         delay += delayIncrement; // Tăng độ trễ cho lần tiếp theo
     });
 
+    // const errorAudio = new Audio("audio/erro.mp3");
+    // let currentIndex = 0;
+    
+    // function moveAndPlayAudio() {
+    //     if (currentIndex < postWrapArray.length) {
+    //         let postWrap = postWrapArray[currentIndex];
+    
+    //         let postWrapHeight = parseInt(window.getComputedStyle(postWrap).height);
+    //         let postWrapWidth = parseInt(window.getComputedStyle(postWrap).width);
+    
+    //         postWrap.style.top = Math.random() * (boardHeight - postWrapHeight) + "px";
+    //         postWrap.style left = Math.random() * (boardWidth - postWrapWidth) + "px";
+    
+    //         if (currentIndex > 0) {
+    //             let top = parseFloat(postWrapArray[currentIndex - 1].style.top) + 20 + "px";
+    //             let left = parseFloat(postWrapArray[currentIndex - 1].style.left) + 20 + "px";
+    //             postWrap.style.top = top;
+    //             postWrap.style.left = left;
+    //         }
+    
+    //         postWrap.style.display = "block";
+    
+    //         errorAudio.play();
+    
+    //         if (currentIndex === postWrapArray.length - 1) {
+    //             currentIndex = 0;
+    //         } else {
+    //             currentIndex++;
+    //         }
+    //     }
+    // }
+    
+    // setInterval(moveAndPlayAudio, 50);
 
+
+
+    
     let flg = false;
 
     postWrap.addEventListener("mousedown", () => (flg = true));
