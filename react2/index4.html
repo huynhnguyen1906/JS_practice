@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React-practice</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel"> 
+        
+        function Input({ label, ...inputProps }) {
+            return (
+                
+                <div>
+                    <label>{label}</label>
+                    <input {...inputProps} />
+                </div>
+            )
+        }
+        function Button ({ title, style}) {
+            return (
+                <button style={style}>{title}</button>
+            )
+        }
+        function List ({ items, children }) {
+            return (
+                <ul>
+                    {items.map((item) => (
+                        children(item)
+                    ))}
+                </ul>
+            )
+        }
+
+        //App.js
+        function App() {
+
+            const cars = ['BMW', 'Audi', 'Mercedes']
+            
+            return (
+                <div id='wrapper'>
+                    <Input 
+                        label='Name'
+                        type='text'
+                        placeholder='Enter your name'
+                        onFocus={() => console.log('onFocus')}
+                    />
+                    <Button 
+                        title='Submit'  
+                        style={{ backgroundColor: 'red', color: 'white' , margin: '10px'}}
+                    />
+                    <List items={cars}> 
+                        {(item) => <li key={item}>{item}</li>}
+                    </List>
+                </div>
+            )
+        }
+
+        //index.js
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>

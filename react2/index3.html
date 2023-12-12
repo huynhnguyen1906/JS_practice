@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>React-practice</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .btn {
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #c59c9c;
+            margin-top: 20px;
+            text-align: center;
+            line-height: 30px;
+            border: 1px solid #e96666;
+            font-size: 13px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn:hover {
+            background-color: #df3030;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel"> 
+        
+        const Form = {
+            Input() { 
+                return (
+                    <input />
+                )
+            },
+            Checkbox() {
+                return (
+                    <input type='checkbox' />
+                )
+            }
+        }
+
+        //App.js
+        function App() {
+
+            const type = 'Input';
+            const Component = Form[type];
+
+            function Button({ onClick, href, title}) {
+                let Component = 'button';
+                let props = {};
+                if(onClick) {
+                    props.onClick = onClick;
+                }
+                if(href) {
+                    Component = 'a';
+                    props.href = href;
+                }
+                return (
+                    <Component 
+                        className='btn'
+                        {...props}
+                    >
+                        {title}
+                    </Component>
+                )
+            }
+
+            return (
+                <div id='wrapper'>
+                    <Component />
+                    <Form.Checkbox />
+                    <div>
+                        <Button 
+                            title='Click me'
+                            onClick={() => {
+                                console.log('clicked');
+                            }}
+                        />
+                        <Button 
+                            title='Click me'
+                            href='https://google.com'
+                        />
+                    </div>
+                </div>
+            )
+        }
+
+        //index.js
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
