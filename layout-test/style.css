@@ -22,7 +22,7 @@ body {
 .main {
 	background-color: #b13636;
 	margin-left: auto;
-	width: calc(100% - 244px);
+	width: calc(100% - 262px);
 	height: auto;
 	display: flex;
 	justify-content: center;
