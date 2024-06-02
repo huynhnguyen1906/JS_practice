@@ -8,42 +8,11 @@
 	<body>
 		<h1>天気を調べる</h1>
 
-		<input type="text" id="cityInput" placeholder="領域を入力" />
-		<button onclick="getWeather()">調べる</button>
+		<input type="text" id="cityInput" placeholder="英文字地域の名前を入力" />
+		<button id="button">調べる</button>
 
 		<div id="weather"></div>
 
-		<script>
-			const apiKey = "c21092e5fcd6ae71cd36ca5af2177f71";
-
-			function getWeather() {
-				const cityInput = document.getElementById("cityInput");
-				const city = cityInput.value;
-
-				if (city.trim() === "") {
-					alert("領域を入力してください！");
-					return;
-				}
-
-				const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-				fetch(apiUrl)
-					.then((response) => response.json())
-					.then((dawf) => {
-						const weatherDiv = document.getElementById("weather");
-						weatherDiv.innerHTML = `
-            <p>地域: ${dawf.name}</p>
-            <p>現在の温度: ${dawf.main.temp}°C</p>
-            <p>最高温度: ${dawf.main.temp_max}°C</p>
-            <p>体感温度: ${dawf.main.feels_like}°C</p>
-            <p>風の速度: ${dawf.wind.speed} km/h</p>
-          `;
-						console.log(dawf);
-					})
-					.catch((error) => {
-						console.error("エラー: " + error);
-					});
-			}
-		</script>
+		<script src="script.js"></script>
 	</body>
 </html>
