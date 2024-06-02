@@ -1,54 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Thời tiết hiện tại</h1>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>天気を調べる</h1>
 
-  <!-- Ô nhập tên thành phố -->
-  <input type="text" id="cityInput" placeholder="Nhập tên thành phố">
-  <button onclick="getWeather()">Tra cứu</button>
+		<input type="text" id="cityInput" placeholder="領域を入力" />
+		<button onclick="getWeather()">調べる</button>
 
-  <div id="weather"></div>
+		<div id="weather"></div>
 
-  <script>
-    // Thay thế 'YOUR_API_KEY' bằng khóa API của bạn từ OpenWeatherMap
-    const apiKey = 'c21092e5fcd6ae71cd36ca5af2177f71';
+		<script>
+			const apiKey = "c21092e5fcd6ae71cd36ca5af2177f71";
 
-    function getWeather() {
-      const cityInput = document.getElementById('cityInput');
-      const city = cityInput.value;
+			function getWeather() {
+				const cityInput = document.getElementById("cityInput");
+				const city = cityInput.value;
 
-      // Kiểm tra xem ô nhập liệu có dữ liệu hay không
-      if (city.trim() === '') {
-        alert('Vui lòng nhập tên thành phố');
-        return;
-      }
+				if (city.trim() === "") {
+					alert("領域を入力してください！");
+					return;
+				}
 
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+				const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
-      fetch(apiUrl)
-        .then((response) => response.json())
-        .then((dawf) => {
-          const weatherDiv = document.getElementById('weather');
-          weatherDiv.innerHTML = `
-            <p>Thành phố: ${dawf.name}</p>
-            <p>Nhiệt độ hiện tại: ${dawf.main.temp}°C</p>
-            <p>Nhiệt độ tối đa: ${dawf.main.temp_max}°C</p>
-            <p>Cảm giác như: ${dawf.main.feels_like}°C</p>
-            <p>Thời tiết: ${dawf.weather[0].main}</p>
-            <p>Tốc độ gió: ${dawf.wind.speed} km/h</p>
+				fetch(apiUrl)
+					.then((response) => response.json())
+					.then((dawf) => {
+						const weatherDiv = document.getElementById("weather");
+						weatherDiv.innerHTML = `
+            <p>地域: ${dawf.name}</p>
+            <p>現在の温度: ${dawf.main.temp}°C</p>
+            <p>最高温度: ${dawf.main.temp_max}°C</p>
+            <p>体感温度: ${dawf.main.feels_like}°C</p>
+            <p>風の速度: ${dawf.wind.speed} km/h</p>
           `;
-          console.log(dawf);
-          console.log(response);
-        })
-        .catch((error) => {
-          console.error('Lỗi: ' + error);
-        });
-    }
-  </script>
-</body>
+						console.log(dawf);
+					})
+					.catch((error) => {
+						console.error("エラー: " + error);
+					});
+			}
+		</script>
+	</body>
 </html>
