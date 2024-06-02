@@ -13,7 +13,7 @@ function displayTasks() {
             <span class="${task.completed ? "completed" : ""}">${
 			task.text
 		}   </span>
-            <button class="delete detele-btn" data-index="${index}">delete</button>
+            <button class="delete delete-btn" data-index="${index}">delete</button>
         `;
 		listItem.classList.add("task");
 		taskList.appendChild(listItem);
