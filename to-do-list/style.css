@@ -26,9 +26,17 @@ h1 {
 	width: 200px;
 	padding: 5px;
 }
-
+#search-task {
+	width: 200px;
+	padding: 5px;
+	margin-top: 15px;
+}
 button {
 	padding: 5px 10px;
+}
+
+button.edit-btn {
+	margin-right: 5px;
 }
 
 #task-list {
