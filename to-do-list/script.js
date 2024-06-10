@@ -6,7 +6,7 @@ const taskList = document.getElementById("task-list");
 // localStorageからタスクをとる
 const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-// タスクを表示の関数
+// タスクを表示の関数filteredTasksが指定されなければ全てのタスクを表示
 function displayTasks(filteredTasks = tasks) {
 	taskList.innerHTML = "";
 	filteredTasks.forEach((task, index) => {
