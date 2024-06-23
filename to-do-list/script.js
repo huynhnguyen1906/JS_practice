@@ -90,7 +90,7 @@ taskForm.addEventListener("submit", (e) => {
 	if (text !== "") {
 		addTask(text, priority);
 		newTaskInput.value = "";
-		prioritySelect.value = "中";
+		prioritySelect.value = "高";
 		newTaskInput.focus();
 	}
 });
@@ -105,12 +105,13 @@ taskList.addEventListener("click", (e) => {
 	//タスクを押すときに、編集のボタンの場合ならタスクを編集
 	else if (e.target.classList.contains("edit")) {
 		const index = e.target.getAttribute("data-index");
-		const taskTextElement = e.target.previousElementSibling.previousElementSibling;
-		const taskPriorityElement = e.target.previousElementSibling;
+		const listItem = e.target.closest("li");
+		const taskTextElement = listItem.querySelector(".task-text");
+		const taskPriorityElement = listItem.querySelector(".task-priority");
 		editTask(index, taskTextElement, taskPriorityElement, e.target);
 	}
 	//タスクを押すときに、 タスクのテキストの場合ならタスクをチェック
-	else if (e.target.tagName === "SPAN" && e.target.classList.contains("task-text")) {
+	else if (e.target.classList.contains("task-text")) {
 		// 編集中でない場合のみtoggleCompleteを実行
 		if (editingIndex === null) {
 			const checkbox = e.target.previousElementSibling;
