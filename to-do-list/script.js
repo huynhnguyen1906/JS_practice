@@ -8,7 +8,7 @@ const taskList = document.getElementById("task-list");
 const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 // 現在編集中のタスクのインデックス
-let editingIndex = null;
+let editingIndex = false;
 
 // タスクを表示の関数filteredTasksが指定されなければ全てのタスクを表示
 function displayTasks(filteredTasks = tasks) {
@@ -52,7 +52,7 @@ function toggleComplete(index) {
 function editTask(index, taskTextElement, taskPriorityElement, editButton) {
 	if (editButton.textContent === "編集") {
 		// 現在編集中のタスクのインデックスを設定
-		editingIndex = index;
+		editingIndex = true;
 
 		// タスクテキストを編集可能にする
 		taskTextElement.contentEditable = "true";
@@ -78,7 +78,7 @@ function editTask(index, taskTextElement, taskPriorityElement, editButton) {
 		displayTasks();
 
 		// 編集中のインデックスをクリア
-		editingIndex = null;
+		editingIndex = false;
 	}
 }
 
@@ -113,7 +113,7 @@ taskList.addEventListener("click", (e) => {
 	//タスクを押すときに、 タスクのテキストの場合ならタスクをチェック
 	else if (e.target.classList.contains("task-text")) {
 		// 編集中でない場合のみtoggleCompleteを実行
-		if (editingIndex === null) {
+		if (editingIndex === false) {
 			const checkbox = e.target.previousElementSibling;
 			const index = checkbox.getAttribute("data-index");
 			checkbox.checked = !checkbox.checked;
